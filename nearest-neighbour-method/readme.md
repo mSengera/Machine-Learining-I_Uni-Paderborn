@@ -1,3 +1,5 @@
+[![Functional?](https://img.shields.io/badge/Functional%3F-yes-green.svg)](https://shields.io/)
+
 # [Machine Learning] Nearest Neighbor Method
 
 The Nearest Neighbor Mehtod programmes in Python. Provided is a dataset of handwritten digits.
