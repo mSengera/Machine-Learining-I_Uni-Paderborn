@@ -6,3 +6,6 @@ A collection of code for Machine Learning I @ Uni Paderborn WS(2018/19)
 
 ### hypotheses-finder
 [![Functional?](https://img.shields.io/badge/Functional%3F-no-red.svg)](https://shields.io/)
+
+### version-space-learning
+[![Functional?](https://img.shields.io/badge/Functional%3F-no-red.svg)](https://shields.io/)
