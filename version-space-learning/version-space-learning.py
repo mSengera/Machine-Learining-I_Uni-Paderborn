@@ -15,12 +15,16 @@ Training Data for the learner
 """
 training_data = [
     [[2, 3], 1],
+    [[2, 1], 1],
     [[3, 4], 1],
     [[3, 5], 1],
     [[3, 2], 1],
     [[5, 7], 1],
     [[5, 2], 1],
+    [[1, 2], 1],
     [[1, 1], -1],
+    [[2, 1], -1],
+    [[2, 5], -1],
     [[6, 8], -1],
     [[7, 4], -1],
     [[5, 3], -1],
@@ -82,6 +86,30 @@ for point in training_data:
         s_max_y = old_s_max_y
         s_min_y = old_s_min_y
 
-
 draw_rectangle(s_min_y, s_max_y, s_min_x, s_max_x)
+
+"""
+G - Most general boundary
+"""
+y_min = 999
+y_max = 0
+x_min = 999
+x_max = 0
+
+for point in training_data:
+    if point[1] == 1:
+        if point[0][0] < x_min:
+            x_min = point[0][0]
+
+        if point[0][0] > x_max:
+            x_max = point[0][0]
+
+        if point[0][1] < y_min:
+            y_min = point[0][1]
+
+        if point[0][1] > y_max:
+            y_max = point[0][1]
+
+draw_rectangle(y_min, y_max, x_min, x_max)
+
 plt.show()
