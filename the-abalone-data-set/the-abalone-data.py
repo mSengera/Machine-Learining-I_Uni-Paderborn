@@ -62,9 +62,9 @@ for line in open(path):
     # Get total rings count
     rings = 0.0
     for abalone in top:
-        rings = rings + float(abalone[1][-1])
+        rings = rings + int(abalone[1][-1])
 
-    error_distance = abs((rings / k) - (float(x[-1])))
+    error_distance = abs((rings / k) - (int(x[-1])))
     error_count = error_count + error_distance
 
 print('\nAverage mistake: ' + str(error_count / num_lines))
