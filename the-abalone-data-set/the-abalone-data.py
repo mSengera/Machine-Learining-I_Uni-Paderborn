@@ -1,4 +1,5 @@
 from scipy.spatial import distance
+import operator
 
 """
 The Abalone Dataset
@@ -41,7 +42,7 @@ for line in open(path):
             curr_dist = dist(x, y)
             nn.append([curr_dist, y])
 
-    sorted_nn = sorted(nn)
+    sorted_nn = sorted(nn, key=operator.itemgetter(0))
     top = sorted_nn[:k]  # Grab the best k abalones
 
     rings = 0.0
