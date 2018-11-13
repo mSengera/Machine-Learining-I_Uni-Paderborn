@@ -1,4 +1,4 @@
-[![Functional?](https://img.shields.io/badge/Functional%3F-no-red.svg)](https://shields.io/)
+[![Functional?](https://img.shields.io/badge/Functional%3F-yes-green.svg)](https://shields.io/)
 
 # [Machine Learning] The Abalone Dataset
 
