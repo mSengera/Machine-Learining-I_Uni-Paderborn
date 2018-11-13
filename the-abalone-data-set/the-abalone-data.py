@@ -1,11 +1,27 @@
-from scipy.spatial import distance
-import operator
-
 """
 The Abalone Dataset
 """
-# Number of neighbours to calc
-k = 20
+from scipy.spatial import distance
+import operator
+import sys
+
+k = 45  # Number of neighbours to calc. See table for error rate.
+"""
+--------------------------
+-- k --- Error rate ------
+--------------------------
+-- 5 --- 2.9480 ----------
+-- 10 -- 2.3832 ----------
+-- 15 -- 2.4838 ----------
+-- 20 -- 2.3918 ----------
+-- 25 -- 2.2965 ---------- 
+-- 30 -- 2.2843 ----------
+-- 35 -- 2.2916 ----------
+-- 40 -- 2.3187 ----------
+-- 45 -- 2.3533 ----------
+-- 50 -- 2.3032 ----------
+--------------------------
+"""
 
 # Complete Data Path
 path = 'abalone.data'
@@ -23,9 +39,8 @@ num_lines = sum(1 for l in open(path))
 i = 0
 
 for line in open(path):
-    # Print actual abalone data line
     i = i + 1
-    print(i)
+    sys.stdout.write('\rProgress: ' + str(round(i / num_lines * 100)) + '%')
 
     nn = []
     x = line.rstrip().split(',')
@@ -42,19 +57,14 @@ for line in open(path):
             curr_dist = dist(x, y)
             nn.append([curr_dist, y])
 
-    sorted_nn = sorted(nn, key=operator.itemgetter(0))
-    top = sorted_nn[:k]  # Grab the best k abalones
+    top = sorted(nn, key=operator.itemgetter(0))[:k]  # Grab k best abalone data
 
+    # Get total rings count
     rings = 0.0
-
-    # Get average rings
     for abalone in top:
         rings = rings + float(abalone[1][-1])
 
-    # Average rings
-    rings = rings / k
-
-    error_distance = abs((rings + 1.5) - (float(x[-1]) + 1.5))
+    error_distance = abs((rings / k) - (float(x[-1])))
     error_count = error_count + error_distance
 
-print('Average mistake: ' + str(error_count / num_lines))
+print('\nAverage mistake: ' + str(error_count / num_lines))
