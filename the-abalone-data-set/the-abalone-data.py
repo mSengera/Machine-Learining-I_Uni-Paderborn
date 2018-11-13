@@ -5,7 +5,7 @@ from scipy.spatial import distance
 import operator
 import sys
 
-k = 45  # Number of neighbours to calc. See table for error rate.
+k = 30  # Number of neighbours to calc. See table for error rate.
 """
 --------------------------
 -- k --- Error rate ------
