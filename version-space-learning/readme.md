@@ -1,4 +1,4 @@
-[![Functional?](https://img.shields.io/badge/Functional%3F-no-red.svg)](https://shields.io/)
+[![Functional?](https://img.shields.io/badge/Functional%3F-Snippets-yellow.svg)](https://shields.io/)
 
 # [Machine Learning] Version Space Learning
 
