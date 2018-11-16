@@ -3,6 +3,34 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+"""
+Print data in 3d
+"""
+
+plt.rcParams['figure.figsize'] = (20.0, 10.0)
+
+data = pd.read_csv('data/students.csv')
+
+# Printing the dataset dimensions
+print(data.shape)
+
+data.head()
+
+math = data['Math'].values
+read = data['Reading'].values
+write = data['Writing'].values
+
+# Ploting the scores as scatter plot
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.scatter(math, read, write, color='#ef1234')
+plt.show()
+
+
+"""
+Calculation linear regression
+"""
+
 
 def cost_function(X, Y, B):
     m = len(Y)
@@ -34,24 +62,6 @@ def gradient_descent(X, Y, B, alpha, iterations):
     return B, cost_history
 
 
-plt.rcParams['figure.figsize'] = (20.0, 10.0)
-
-data = pd.read_csv('data/students.csv')
-
-# Printing the dataset dimensions
-print(data.shape)
-
-data.head()
-
-math = data['Math'].values
-read = data['Reading'].values
-write = data['Writing'].values
-
-# Ploting the scores as scatter plot
-fig = plt.figure()
-ax = Axes3D(fig)
-ax.scatter(math, read, write, color='#ef1234')
-plt.show()
 
 m = len(math)
 x0 = np.ones(m)
@@ -74,18 +84,17 @@ print(newB)
 # Final Cost of new B
 print(cost_history[-1])
 
+
 """
 Model validation
 """
 
 
-# Model Evaluation - RMSE
 def rmse(Y, Y_pred):
     rmse = np.sqrt(sum((Y - Y_pred) ** 2) / len(Y))
     return rmse
 
 
-# Model Evaluation - R2 Score
 def r2_score(Y, Y_pred):
     mean_y = np.mean(Y)
     ss_tot = sum((Y - mean_y) ** 2)
