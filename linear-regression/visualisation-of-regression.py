@@ -30,6 +30,7 @@ target = pd.DataFrame(data.target, columns=["MEDV"])
 
 X = df["RM"]
 y = target["MEDV"]
+X = sm.add_constant(X)
 
 model = sm.OLS(y, X).fit()
 predictions = model.predict(X)
