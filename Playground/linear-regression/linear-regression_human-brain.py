@@ -54,3 +54,28 @@ plt.ylabel('Brain Weight (grams)')
 plt.legend()
 plt.show()
 
+"""
+Root mean squared error
+"""
+rmse = 0
+
+for i in range(n):
+    y_pred = b0 + b1 * X[i]
+    rmse += (Y[i] - y_pred) ** 2
+
+rmse = np.sqrt(rmse / n)
+print(rmse)
+
+"""
+Calculating R^2 score
+"""
+sumofsquares = 0
+sumofresiduals = 0
+
+for i in range(n):
+    y_pred = b0 + b1 * X[i]
+    sumofsquares += (Y[i] - y_mean) ** 2
+    sumofresiduals += (Y[i] - y_pred) ** 2
+
+score = 1 - (sumofresiduals / sumofsquares)
+print(score)
