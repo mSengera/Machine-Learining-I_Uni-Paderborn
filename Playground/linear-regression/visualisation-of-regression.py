@@ -1,6 +1,5 @@
 import statsmodels.api as sm
 from sklearn import datasets
-import numpy as np
 import pandas as pd
 
 """
@@ -28,7 +27,7 @@ df = pd.DataFrame(data.data, columns=data.feature_names)
 # Put the target (housing value -- MEDV) in another DataFrame
 target = pd.DataFrame(data.target, columns=["MEDV"])
 
-X = df["RM"]
+X = df[["RM", "LSTAT"]]
 y = target["MEDV"]
 X = sm.add_constant(X)
 
