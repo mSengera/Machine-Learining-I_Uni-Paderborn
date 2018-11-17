@@ -2,3 +2,4 @@
 
 # [Machine Learning] Linear Regression
 
+A lot of code to understand linear regression in machine learning. A lot of tests and visualisations done in python.
