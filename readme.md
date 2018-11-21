@@ -19,3 +19,6 @@ A collection of code for Machine Learning I @ Uni Paderborn WS(2018/19)
 
 ##### linear-regression
 [![Functional?](https://img.shields.io/badge/Functional%3F-Snippets-yellow.svg)](https://shields.io/)
+
+##### finding-the-risk-minimizer
+[![Functional?](https://img.shields.io/badge/Functional%3F-Snippets-yellow.svg)](https://shields.io/)
