@@ -35,23 +35,28 @@ class Hypothesis:
 
     def predict(self, x):
         summation = sum([x[i] for i in range(len(self.a))])
+
         return 1 if summation >= self.t else -1
 
     def calculate_true_risk(self):
         risk = 0
+
         for x, (prob_negative, prob_positive) in probability_distribution:
             if self.predict(x) == 1:
                 risk += 1 * prob_negative + 0 * prob_positive
             else:
                 risk += 1 * prob_positive + 0 * prob_negative
+
         return risk
 
 
 def generate_hypothesis_space():
     hypos = []
+
     for a in powerset({1, 2, 3}):
         for t in [i for i in range(len(a) + 2)]:
             hypos.append(Hypothesis(a, t))
+
     return hypos
 
 
